@@ -48,9 +48,7 @@ const orders = [];
 // In-memory store for transaction results
 const transactionResults = {};
 
-// -----------------------------------------------
 // GEMINI HELPER
-// -----------------------------------------------
 async function callGemini(prompt) {
 
     const response = await fetch(
@@ -91,10 +89,7 @@ async function callGemini(prompt) {
     return text;
 }
 
-// -----------------------------------------------
 // PRODUCTS
-// -----------------------------------------------
-
 // GET all products
 app.get("/products", (req, res) => {
     try {
@@ -151,10 +146,7 @@ app.post("/products", (req, res) => {
     res.status(201).json(newProduct);
 });
 
-// -----------------------------------------------
 // ORDERS
-// -----------------------------------------------
-
 // POST order
 app.post("/orders", (req, res) => {
 
@@ -218,10 +210,7 @@ app.get("/orders/:id", (req, res) => {
     res.status(200).json(order);
 });
 
-// -----------------------------------------------
 // AI ENDPOINTS
-// -----------------------------------------------
-
 // POST: Generate product description using Gemini
 app.post("/generate-description", async (req, res) => {
 
@@ -315,10 +304,8 @@ app.post("/thank-you", async (req, res) => {
     }
 });
 
-// -----------------------------------------------
+/
 // MPESA
-// -----------------------------------------------
-
 // POST: Initiate STK Push
 app.post("/pay", async (req, res) => {
 
@@ -404,7 +391,7 @@ app.post("/callback", (req, res) => {
         const phone     = items.find(i => i.Name === "PhoneNumber")?.Value;
         const date      = items.find(i => i.Name === "TransactionDate")?.Value;
 
-        console.log("=== ✅ Transaction Successful ===");
+        console.log("===  Transaction Successful ===");
         console.log("   Amount     :", amount);
         console.log("   Receipt No :", receiptNo);
         console.log("   Phone      :", phone);
@@ -453,10 +440,6 @@ app.get("/payment-status/:checkoutRequestId", (req, res) => {
 
     return res.status(200).json(result);
 });
-
-// -----------------------------------------------
-// MISC
-// -----------------------------------------------
 
 // TEST 500 ERROR
 app.get("/test-error", (req, res) => {
