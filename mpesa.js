@@ -20,7 +20,7 @@ export async function getMpesaAccessToken() {
         }
     );
 
-    // ✅ Read raw text first
+    // Read raw text first
     const raw = await response.text();
 
     console.log("Access Token raw response:", raw);
@@ -57,7 +57,7 @@ function getTimestamp() {
  */
 export async function stkPush(phone, amount) {
 
-    // ✅ Debug: verify env variables are loaded
+    // verify env variables are loaded
     console.log("ENV CHECK:", {
         CONSUMER_KEY: process.env.CONSUMER_KEY,
         CONSUMER_SECRET: process.env.CONSUMER_SECRET,
@@ -101,7 +101,7 @@ export async function stkPush(phone, amount) {
         }
     );
 
-    // ✅ Read raw text first
+    // Read raw text first
     const raw = await response.text();
 
     console.log("STK Push raw response:", raw);
@@ -147,7 +147,7 @@ export async function stkQuery(checkoutRequestId) {
         }
     );
 
-    // ✅ Read raw text first
+    //Read raw text first
     const raw = await response.text();
 
     console.log("STK Query raw response:", raw);
