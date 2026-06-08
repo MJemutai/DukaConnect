@@ -1,9 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-/**
- * D1: Get OAuth Token
- */
+/*Get OAuth Token*/
 export async function getMpesaAccessToken() {
 
     const auth = Buffer
@@ -35,9 +33,7 @@ export async function getMpesaAccessToken() {
     return data.access_token;
 }
 
-/**
- * Timestamp helper (YYYYMMDDHHMMSS)
- */
+/*Timestamp(YYYYMMDDHHMMSS)*/
 function getTimestamp() {
 
     const date = new Date();
@@ -52,9 +48,7 @@ function getTimestamp() {
     );
 }
 
-/**
- * D2: STK Push
- */
+/*STK Push*/
 export async function stkPush(phone, amount) {
 
     // verify env variables are loaded
@@ -114,9 +108,7 @@ export async function stkPush(phone, amount) {
     return JSON.parse(raw);
 }
 
-/**
- * D3: STK Query (Transaction Status)
- */
+/*STK Query (Transaction Status)*/
 export async function stkQuery(checkoutRequestId) {
 
     const token = await getMpesaAccessToken();
